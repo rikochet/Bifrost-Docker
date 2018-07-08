@@ -34,7 +34,7 @@ Use docker to create a new volume (bifrost-mn1) and run the new image.
 $ docker volume create bifrost-mn1
 $ docker run -dit --restart unless-stopped \
 --name Bifrost-MN1 \
--v bifrost-nm1:/root/.bifrost \
+-v bifrost-mn1:/root/.bifrost \
 -p 9229:9229 \
 -e COINKEY='ABCDEFGHIJKLMNOPQRTSUVWXYZ0123456789' \
 bifrost-masternode:latest
