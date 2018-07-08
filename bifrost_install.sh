@@ -81,37 +81,17 @@ function important_information() {
  echo -e "================================================================================================================================"
 }
 
-function import_bootstrap() {
-  if [ ! -d "$CONFIGFOLDER/blocks" ]; then
-  # Control will enter here if $DIRECTORY doesn't exist.
-    echo -e "Downloading Bootstrap..."
-    wget -q $COIN_BS
-    compile_error
-    echo -e "Importing Bootstrap..."
-    COIN_ZIP=$(echo $COIN_BS | awk -F'/' '{print $NF}')
-    unzip $COIN_ZIP
-    compile_error
-    cp -r ~/bootstrap/blocks ~/.acedcore/blocks
-    cp -r ~/bootstrap/chainstate ~/.acedcore/chainstate
-    cp -r ~/bootstrap/peers.dat ~/.acedcore/peers.dat
-    rm -r ~/bootstrap/
-    rm $COIN_ZIP
-    echo -e "Import Complete!"
-  fi
-}
-
 function setup_node() {
   echo -e "Setting up..."
   get_ip
   create_config
-  import_bootstrap
   update_config
 }
 
 function run_node() {
   echo -e "Running node..."
-  acedd -daemon -conf=$CONFIGFOLDER/$CONFIG_FILE -datadir=$CONFIGFOLDER
-  tail -f /root/.acedcore/debug.log
+  bifrostd -daemon -conf=$CONFIGFOLDER/$CONFIG_FILE -datadir=$CONFIGFOLDER
+  tail -f /root/.bifrost/debug.log
 }
 
 ##### Main #####
