@@ -1,7 +1,7 @@
 # Bifrost - docker image
 This docker image includes shell script to install a [Bifrost Masternode](http://www.bifrostcoin.io/) on a Linux server running Ubuntu 16.04.  
   
-This script will install **Bifrost v1.0.3**.
+This script will install **Bifrost v1.1**.
 ***
 
 
@@ -19,7 +19,7 @@ $ apt-get install docker.io
 Grab a copy of the Bifrost-Docker image template from github and build the template as local image.
 
 ```
-$ git clone git@github.com:rikochet/Bifrost-Docker.git \
+$ git clone https://github.com/rikochet/Bifrost-Docker.git \
 && cd Bifrost-Docker \
 && docker build -t bifrost-masternode .
 ```
